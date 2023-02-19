@@ -1,0 +1,3 @@
+app:
+  wallets_dir: "wallets/"
+  wallets_file: "wallets.txt"

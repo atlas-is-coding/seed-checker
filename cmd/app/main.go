@@ -1,9 +1,24 @@
 package main
 
 import (
-	"wallet-checker/internal/checkers"
+	"log"
+	"wallet-checker/internal/app"
+	"wallet-checker/internal/config"
 )
 
 func main() {
-	checkers.CheckWalletBySecretKey("76e9dbf09b67087eea29252e34ff77433b57184365ff55bf840e9004fb0a6a5a")
+	log.Println("config initializing...")
+	cfg := config.GetConfig()
+
+	log.Println("app initializing...")
+	newApp, err := app.NewApp(cfg)
+	if err != nil {
+		log.Fatalln(err)
+	}
+
+	log.Println("start application...")
+	if err := newApp.Run(); err != nil {
+		log.Fatalln(err)
+	}
+	log.Println("done!")
 }
