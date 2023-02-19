@@ -7,6 +7,7 @@ import (
 	"sync"
 	"wallet-checker/internal/checkers"
 	"wallet-checker/internal/config"
+	"wallet-checker/pkg/duplicates"
 	"wallet-checker/pkg/utils"
 )
 
@@ -59,7 +60,7 @@ func (a App) Run() error {
 
 	secretKeys := string(file)
 
-	for _, secretKey := range strings.Split(secretKeys, "\n") {
+	for _, secretKey := range duplicates.RemoveFromSlice(strings.Split(secretKeys, "\n")) {
 		wg.Add(1)
 		go func(secretKey string) {
 			checkers.CheckWalletBySecretKey(secretKey)

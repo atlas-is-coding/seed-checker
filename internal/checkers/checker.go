@@ -17,20 +17,32 @@ type CheckerInterface interface {
 var (
 	binance = ethereum.NewChecker(ethereum.NetworkConfig{
 		Name:   "Binance",
-		Symbol: "bnb",
+		Symbol: "$BNB",
 	}, config.Endpoints["binance"])
 	eth = ethereum.NewChecker(ethereum.NetworkConfig{
 		Name:   "Ethereum",
-		Symbol: "eth",
+		Symbol: "$ETH",
 	}, config.Endpoints["ethereum"])
 	polygon = ethereum.NewChecker(ethereum.NetworkConfig{
 		Name:   "Polygon",
-		Symbol: "matic",
+		Symbol: "$MATIC",
 	}, config.Endpoints["polygon"])
 	arbitrum = ethereum.NewChecker(ethereum.NetworkConfig{
 		Name:   "Arbitrum",
-		Symbol: "eth",
+		Symbol: "$ETH",
 	}, config.Endpoints["arbitrum"])
+	fantom = ethereum.NewChecker(ethereum.NetworkConfig{
+		Name:   "Fantom",
+		Symbol: "$FTM",
+	}, config.Endpoints["fantom"])
+	optimism = ethereum.NewChecker(ethereum.NetworkConfig{
+		Name:   "Optimism",
+		Symbol: "$ETH-OPT",
+	}, config.Endpoints["optimism"])
+	avalance = ethereum.NewChecker(ethereum.NetworkConfig{
+		Name:   "Avalance",
+		Symbol: "$AVAX",
+	}, config.Endpoints["avalance"])
 
 	networks = []CheckerInterface{
 		binance,
